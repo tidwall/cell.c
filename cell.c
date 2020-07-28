@@ -176,7 +176,7 @@ cell_xy cell_xy_from_string(const char *str) {
     cell_xy cell = { 0 };
     if (str) {
         for (int i = 0; str[i] && i < 16; i++) {
-        	cell = (cell << 4) | (uint64_t)(TBL[str[i]]);
+        	cell = (cell << 4) | (uint64_t)(TBL[(int)str[i]]);
         }
     }
     return cell;
@@ -194,10 +194,10 @@ cell_xyzm cell_xyzm_from_string(const char *str) {
     cell_xyzm cell = { 0 };
     if (str) {
         for (int i = 0; str[i] && i < 16; i++) {
-        	cell.hi = (cell.hi << 4) | (uint64_t)(TBL[str[i]]);
+        	cell.hi = (cell.hi << 4) | (uint64_t)(TBL[(int)str[i]]);
         }
         for (int i = 16; str[i] && i < 32; i++) {
-        	cell.lo = (cell.lo << 4) | (uint64_t)(TBL[str[i]]);
+        	cell.lo = (cell.lo << 4) | (uint64_t)(TBL[(int)str[i]]);
         }
     }
     return cell;
